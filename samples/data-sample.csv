@@ -1,0 +1,52 @@
+sigla, trace_id, from_alias, from_service, to_alias, to_service, comunidade, squad, language, repo_url, duration
+ECO, 1a2b3c4d5e6f7g8h, s01, API Gateway, s02, BFF Web, Plataforma, Edge, Nginx, github.com/eco/api-gw, 45000000
+ECO, 2a2b3c4d5e6f7g8h, s01, API Gateway, s03, BFF Mobile, Plataforma, Edge, Nginx, github.com/eco/api-gw, 50000000
+ECO, 3a2b3c4d5e6f7g8h, s01, API Gateway, s04, BFF Partner, Plataforma, Edge, Nginx, github.com/eco/api-gw, 35000000
+ECO, 4a2b3c4d5e6f7g8h, s02, BFF Web, s05, Auth Service, Experience, Web, Node.js, github.com/eco/bff-web, 20000000
+ECO, 5a2b3c4d5e6f7g8h, s03, BFF Mobile, s05, Auth Service, Experience, Mobile, Kotlin, github.com/eco/bff-mobile, 25000000
+ECO, 6a2b3c4d5e6f7g8h, s04, BFF Partner, s05, Auth Service, Integrations, B2B, Go, github.com/eco/bff-partner, 15000000
+ECO, 7a2b3c4d5e6f7g8h, s05, Auth Service, s06, User DB, Security, Identity, Go, github.com/eco/auth-svc, 10000000
+ECO, 8a2b3c4d5e6f7g8h, s05, Auth Service, s07, Session Cache, Security, Identity, Go, github.com/eco/auth-svc, 5000000
+ECO, 9a2b3c4d5e6f7g8h, s02, BFF Web, s08, Catalog Service, Experience, Web, Node.js, github.com/eco/bff-web, 80000000
+ECO, 0a2b3c4d5e6f7g8h, s03, BFF Mobile, s08, Catalog Service, Experience, Mobile, Kotlin, github.com/eco/bff-mobile, 85000000
+ECO, 1b2b3c4d5e6f7g8h, s08, Catalog Service, s09, Catalog DB, Core, Retail, Python, github.com/eco/catalog-svc, 15000000
+ECO, 2b2b3c4d5e6f7g8h, s08, Catalog Service, s12, Pricing Service, Core, Retail, Python, github.com/eco/catalog-svc, 25000000
+ECO, 3b2b3c4d5e6f7g8h, s12, Pricing Service, s13, Pricing Cache, Core, Fin, Go, github.com/eco/pricing-svc, 5000000
+ECO, 4b2b3c4d5e6f7g8h, s02, BFF Web, s10, Search Service, Experience, Web, Node.js, github.com/eco/bff-web, 120000000
+ECO, 5b2b3c4d5e6f7g8h, s03, BFF Mobile, s10, Search Service, Experience, Mobile, Kotlin, github.com/eco/bff-mobile, 130000000
+ECO, 6b2b3c4d5e6f7g8h, s10, Search Service, s11, Elasticsearch, Discovery, Search, Java, github.com/eco/search-svc, 45000000
+ECO, 7b2b3c4d5e6f7g8h, s02, BFF Web, s14, Cart Service, Experience, Web, Node.js, github.com/eco/bff-web, 40000000
+ECO, 8b2b3c4d5e6f7g8h, s03, BFF Mobile, s14, Cart Service, Experience, Mobile, Kotlin, github.com/eco/bff-mobile, 45000000
+ECO, 9b2b3c4d5e6f7g8h, s14, Cart Service, s15, Cart DB, Checkout, Cart, Go, github.com/eco/cart-svc, 12000000
+ECO, 0c2b3c4d5e6f7g8h, s02, BFF Web, s16, Checkout API, Experience, Web, Node.js, github.com/eco/bff-web, 250000000
+ECO, 1c2b3c4d5e6f7g8h, s03, BFF Mobile, s16, Checkout API, Experience, Mobile, Kotlin, github.com/eco/bff-mobile, 260000000
+ECO, 2c2b3c4d5e6f7g8h, s16, Checkout API, s17, Order Service, Checkout, Ops, Java, github.com/eco/checkout-api, 150000000
+ECO, 3c2b3c4d5e6f7g8h, s16, Checkout API, s20, Payment Service, Checkout, Ops, Java, github.com/eco/checkout-api, 800000000
+ECO, 4c2b3c4d5e6f7g8h, s16, Checkout API, s23, Inventory Service, Checkout, Ops, Java, github.com/eco/checkout-api, 60000000
+ECO, 5c2b3c4d5e6f7g8h, s17, Order Service, s18, Order DB, Orders, Ops, Go, github.com/eco/order-svc, 35000000
+ECO, 6c2b3c4d5e6f7g8h, s17, Order Service, s19, Kafka Broker, Orders, Ops, Go, github.com/eco/order-svc, 10000000
+ECO, 7c2b3c4d5e6f7g8h, s20, Payment Service, s21, Fraud Detection, Finance, Payments, Java, github.com/eco/payment-svc, 120000000
+ECO, 8c2b3c4d5e6f7g8h, s20, Payment Service, s22, Stripe API, Finance, Payments, Java, github.com/eco/payment-svc, 1500000000
+ECO, 9c2b3c4d5e6f7g8h, s20, Payment Service, s19, Kafka Broker, Finance, Payments, Java, github.com/eco/payment-svc, 8000000
+ECO, 0d2b3c4d5e6f7g8h, s19, Kafka Broker, s23, Inventory Service, Logistics, Stock, C#, github.com/eco/inventory-svc, 45000000
+ECO, 1d2b3c4d5e6f7g8h, s23, Inventory Service, s24, Inventory DB, Logistics, Stock, C#, github.com/eco/inventory-svc, 18000000
+ECO, 2d2b3c4d5e6f7g8h, s23, Inventory Service, s25, Shipping Service, Logistics, Stock, C#, github.com/eco/inventory-svc, 90000000
+ECO, 3d2b3c4d5e6f7g8h, s25, Shipping Service, s26, Correios API, Logistics, Delivery, Go, github.com/eco/shipping-svc, 400000000
+ECO, 4d2b3c4d5e6f7g8h, s19, Kafka Broker, s27, Notification Router, Engagement, Comms, Node.js, github.com/eco/notify-router, 25000000
+ECO, 5d2b3c4d5e6f7g8h, s27, Notification Router, s28, Email Sender, Engagement, Comms, Node.js, github.com/eco/notify-router, 15000000
+ECO, 6d2b3c4d5e6f7g8h, s28, Email Sender, s29, SendGrid API, Engagement, Comms, Go, github.com/eco/email-worker, 300000000
+ECO, 7d2b3c4d5e6f7g8h, s27, Notification Router, s30, SMS Sender, Engagement, Comms, Node.js, github.com/eco/notify-router, 10000000
+ECO, 8d2b3c4d5e6f7g8h, s30, SMS Sender, s31, Twilio API, Engagement, Comms, Go, github.com/eco/sms-worker, 250000000
+ECO, 9d2b3c4d5e6f7g8h, s27, Notification Router, s32, Push Notification, Engagement, Comms, Node.js, github.com/eco/notify-router, 20000000
+ECO, 0e2b3c4d5e6f7g8h, s32, Push Notification, s33, Firebase API, Engagement, Comms, Go, github.com/eco/push-worker, 180000000
+ECO, 1e2b3c4d5e6f7g8h, s19, Kafka Broker, s34, Loyalty Service, Growth, Retention, Node.js, github.com/eco/loyalty-svc, 35000000
+ECO, 2e2b3c4d5e6f7g8h, s34, Loyalty Service, s35, Loyalty DB, Growth, Retention, Node.js, github.com/eco/loyalty-svc, 15000000
+ECO, 3e2b3c4d5e6f7g8h, s19, Kafka Broker, s38, Analytics Ingestion, Data, Pipeline, Python, github.com/eco/analytics, 5000000
+ECO, 4e2b3c4d5e6f7g8h, s38, Analytics Ingestion, s39, Data Warehouse, Data, Pipeline, Python, github.com/eco/analytics, 800000000
+ECO, 5e2b3c4d5e6f7g8h, s02, BFF Web, s36, Recommendation AI, Discovery, ML, Python, github.com/eco/recommend, 150000000
+ECO, 6e2b3c4d5e6f7g8h, s36, Recommendation AI, s37, ML Feature Store, Discovery, ML, Python, github.com/eco/recommend, 45000000
+ECO, 7e2b3c4d5e6f7g8h, s36, Recommendation AI, s11, Elasticsearch, Discovery, ML, Python, github.com/eco/recommend, 60000000
+ECO, 8e2b3c4d5e6f7g8h, s05, Auth Service, s40, KYC Service, Security, Risk, Java, github.com/eco/kyc-svc, 500000000
+ECO, 9e2b3c4d5e6f7g8h, s40, KYC Service, s41, Document Verification API, Security, Risk, Java, github.com/eco/kyc-svc, 1200000000
+ECO, 0f2b3c4d5e6f7g8h, s02, BFF Web, s42, Customer Support API, Help, CX, Node.js, github.com/eco/support-api, 95000000
+ECO, 1f2b3c4d5e6f7g8h, s42, Customer Support API, s43, Chatbot ML, Help, CX, Python, github.com/eco/support-api, 250000000
