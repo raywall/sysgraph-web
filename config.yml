@@ -1,5 +1,5 @@
 project:
-  name: "dist-sysgraph-web"
+  name: "sysgraph-web"
   environment: "prod"
 
 angular:
@@ -8,7 +8,7 @@ angular:
 
   # Lista dos MFEs que devem ser buildados e deployados
   apps:
-  - dist-sysgraph-web
+  - sysgraph-web
   # Adicione 'test' se for uma aplicação deployável, senão remova
 
 terraform:
@@ -17,7 +17,7 @@ terraform:
 
   # Configuração do bucket onde o site será hospedado
   bucket_config:
-    name: "dist-sysgraph-web" # O nome deve ser globalmente único na AWS
+    name: "sysgraph.web" # O nome deve ser globalmente único na AWS
     index_document: "index.html"
     error_document: "index.html"
 
@@ -25,4 +25,4 @@ terraform:
   # Nota: O bucket de estado deve existir previamente ou você pode usar terraform cloud
   backend:
     bucket: "raysouz-terraform-state-repository"
-    key: "dist-sysgraph-web/terraform.tfstate"
+    key: "sysgraph-web/terraform.tfstate"

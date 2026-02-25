@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "fast-service-studio": {
+    "sysgraph-web": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -61,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "fast-service-studio:build:production"
+              "buildTarget": "sysgraph-web:build:production"
             },
             "development": {
-              "buildTarget": "fast-service-studio:build:development"
+              "buildTarget": "sysgraph-web:build:development"
             }
           },
           "defaultConfiguration": "development"
