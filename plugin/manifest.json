@@ -1,0 +1,10 @@
+{
+  "id": "sysgraph",
+  "name": "SysGraph",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "Renders distributed system call graphs from sysgraph code blocks. Node size reflects call duration — spot bottlenecks at a glance.",
+  "author": "SysGraph",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}

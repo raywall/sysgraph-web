@@ -1,0 +1,36 @@
+{
+  "data": [
+    {
+      "type": "span_events",
+      "id": "AAAAAAAAAAAAAAAABBBBBBBBBBBBBBCCCCCCCCCCDDDDDDDDDD",
+      "attributes": {
+        "trace_id": "1234567890123456",
+        "span_id": "9876543210987654",
+        "service": "my-service",
+        "name": "my.operation",
+        "resource": "resource name",
+        "status": "ok",
+        "timestamp": "2023-01-01T12:00:00.000Z",
+        "duration": 123456789,
+        "tags": [
+          "env:prod",
+          "datacenter:us"
+        ],
+        "custom": {
+            "language": "java",
+            "squad": "platform",
+            "comunidade": "ecommerce",
+            "duration": 10320980.0
+        }
+      }
+    }
+  ],
+  "meta": {
+    "page": {
+      "after": "eyJwYWdlQ3Vyc29yIjoiQVFBQUFYS2tMS3pPbm40NGV3QUFBQUJCV0V0clRFdDZVbG8zY3pCRmNsbHJiVmxDWlEifQ=="
+    }
+  },
+  "links": {
+    "next": "https://api.datadoghq.com"
+  }
+}

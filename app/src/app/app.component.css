@@ -1,0 +1,447 @@
+.app-layout {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 420px 1fr;
+    grid-template-areas: "header header" "panel graph" "footer footer";
+    min-height: 100vh;
+}
+
+header {
+    grid-area: header;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo span {
+    font-weight: 300;
+}
+
+.tagline {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.panel {
+    grid-area: panel;
+    background: var(--bg2);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.panel-section {
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+}
+
+.panel-section h3 {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-dim);
+    margin-bottom: 12px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.textarea-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    height: 260px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    padding: 12px;
+    resize: vertical;
+    outline: none;
+}
+
+textarea:focus {
+    border-color: var(--accent);
+}
+
+.expand-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    border-radius: 6px;
+    padding: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.expand-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--bg2);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent), #2271cc);
+    color: #fff;
+    width: 100%;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.15);
+}
+
+.btn-secondary {
+    background: var(--bg3);
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    font-size: 11px;
+    padding: 7px 14px;
+}
+
+.btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.btn-upload {
+    background: var(--accent2);
+    color: #000;
+    /* font-weight: 700; */
+    padding: 8px 16px;
+    border-radius: 6px;
+}
+
+.btn-upload:hover {
+    filter: brightness(1.2);
+}
+
+.btn-icon {
+    padding: 8px 14px;
+}
+
+.sample-btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.node-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow-y: auto;
+    max-height: 250px;
+}
+
+.node-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg3);
+    border-radius: 8px;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.node-item:hover {
+    border-color: var(--text-dim);
+}
+
+.node-item.active {
+    border-color: var(--accent);
+    background: var(--node-fill);
+}
+
+.node-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.node-name {
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.node-ms {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.graph-area {
+    grid-area: graph;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg);
+    transition: background 0.3s;
+}
+
+.graph-area.with-grid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+    background-size: 32px 32px;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.d3-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    z-index: 100;
+}
+
+footer {
+    grid-area: footer;
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    padding: 10px 32px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: var(--text-dim);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.legend {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.legend-box {
+    width: 28px;
+    height: 14px;
+    border-radius: 3px;
+}
+
+/* ── Modais ── */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(8, 12, 20, 0.85);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.modal-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    background: var(--bg2);
+    width: 85vw;
+    max-width: 1200px;
+    height: 85vh;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transform: translateY(20px);
+    transition: transform 0.2s;
+}
+
+.modal-overlay.open .modal-content {
+    transform: translateY(0);
+}
+
+.modal-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    font-size: 16px;
+    color: var(--text);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-close-icon {
+    cursor: pointer;
+    color: var(--text-dim);
+    background: none;
+    border: none;
+    font-size: 24px;
+    transition: color 0.2s;
+}
+
+.modal-close-icon:hover {
+    color: var(--danger);
+}
+
+.modal-body {
+    flex: 1;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background: var(--bg);
+}
+
+.modal-body textarea {
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--border);
+    font-size: 14px;
+}
+
+.modal-footer {
+    padding: 16px 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    background: var(--bg2);
+}
+
+.modal-footer .btn-primary {
+    margin-top: 0;
+    width: auto;
+}
+
+/* ── Estilos do Markdown (README) ── */
+.help-modal {
+    max-width: 800px;
+    height: 80vh;
+}
+
+/* Restaura formatação básica para o Help do Markdown */
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3 {
+    font-weight: bold;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #e2e8f0;
+    /* slate-200 */
+}
+
+.markdown-body p {
+    margin-bottom: 1em;
+    line-height: 1.6;
+}
+
+.markdown-body ul,
+.markdown-body ol {
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+    list-style-type: disc;
+}
+
+.markdown-body pre {
+    background-color: #1e293b;
+    /* slate-800 */
+    padding: 1em;
+    border-radius: 0.5em;
+    overflow-x: auto;
+    margin-bottom: 1em;
+}
+
+.markdown-body blockquote {
+    border-left: 4px solid #64748b;
+    padding-left: 1em;
+    font-style: italic;
+    margin-bottom: 1em;
+}
+
+.markdown-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+.markdown-body th,
+.markdown-body td {
+    border: 1px solid #475569;
+    padding: 0.5em;
+}

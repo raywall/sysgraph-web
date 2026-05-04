@@ -1,0 +1,120 @@
+<div class="app-layout">
+  
+  <header>
+    <div>
+      <div class="logo">Sys<span>Graph</span></div>
+      <div class="tagline">// distributed system call graph visualizer</div>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-secondary btn-icon" (click)="openHelpModal()">
+        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+        Docs
+      </button>
+
+      <input type="file" #csvUpload accept=".csv" style="display:none;" (change)="onFileSelected($event)" />
+      <button class="btn btn-upload" (click)="csvUpload.click()">+ Upload CSV</button>
+    </div>
+  </header>
+
+  <aside class="panel">
+    <div class="panel-section">
+      <h3>Source — sysgraph syntax</h3>
+      
+      <div class="textarea-wrapper">
+        <textarea 
+          [(ngModel)]="sourceText" 
+          (keydown)="onKeyDown($event)" 
+          spellcheck="false">
+        </textarea>
+        <button class="expand-btn" title="Expandir Editor" (click)="openModal()">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <polyline points="9 21 3 21 3 15"></polyline>
+            <line x1="21" y1="3" x2="14" y2="10"></line>
+            <line x1="3" y1="21" x2="10" y2="14"></line>
+          </svg>
+        </button>
+      </div>
+
+      <button class="btn btn-primary" (click)="renderGraph()">▶ Render Graph</button>
+    </div>
+
+    <div class="panel-section">
+      <h3>Samples</h3>
+      <div class="sample-btns">
+        <button class="btn btn-secondary" (click)="loadSample('completo')">Completo</button>
+        <button class="btn btn-secondary" (click)="loadSample('simple')">Simples</button>
+        <button class="btn btn-secondary" (click)="loadSample('datadog')">Datadog</button>
+      </div>
+    </div>
+
+    <div class="panel-section" style="flex:1; display:flex; flex-direction:column;">
+      <h3>Nodes (Click to Select)</h3>
+      <div class="node-list">
+        <div class="node-item" 
+             *ngFor="let node of nodesList" 
+             [class.active]="node.id === activeNodeId"
+             (click)="selectNode(node.id)">
+          <div class="node-dot" [style.background]="node.color"></div>
+          <span class="node-name">{{ node.label }}</span>
+          <span class="node-ms">{{ node.formattedMs }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-section">
+      <h3>Legend — thresholds</h3>
+      <div class="legend">
+        <div class="legend-item" *ngFor="let item of legendItems">
+          <div class="legend-box" [style.background]="item.color"></div>
+          {{ item.label }}
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <div class="graph-area" [class.with-grid]="hasGrid">
+    <div #graphContainer class="d3-container"></div>
+    <div class="controls" *ngIf="graphInstance && !errorMsg">
+      <button class="btn btn-secondary" (click)="graphInstance.zoomIn()">＋</button>
+      <button class="btn btn-secondary" (click)="graphInstance.zoomFit()">⊡</button>
+      <button class="btn btn-secondary" (click)="graphInstance.zoomOut()">－</button>
+    </div>
+  </div>
+
+  <footer>
+    <div><span class="status-text">{{ statusText }}</span></div>
+    <span>Drag nodes · Click outside or press Esc to deselect</span>
+  </footer>
+
+</div>
+
+<div class="modal-overlay" [class.open]="isModalOpen" (mousedown)="closeModal()">
+  <div class="modal-content" (mousedown)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>Source Editor</h2>
+      <button class="modal-close-icon" (click)="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <textarea [(ngModel)]="modalSourceText" (keydown)="onModalKeyDown($event)" spellcheck="false"></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+      <button class="btn btn-primary" (click)="applyModalChanges()">Apply Changes</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" [class.open]="isHelpModalOpen" (mousedown)="closeHelpModal()">
+  <div class="modal-content help-modal" (mousedown)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>Documentação do SysGraph</h2>
+      <button class="modal-close-icon" (click)="closeHelpModal()">&times;</button>
+    </div>
+    
+    <div class="modal-body overflow-y-auto bg-slate-900 p-8">
+      <div class="prose prose-slate prose-sm max-w-4xl text-slate-300 dark:prose-invert markdown-body" [innerHTML]="helpHtml"></div>
+    </div>
+    
+  </div>
+</div>

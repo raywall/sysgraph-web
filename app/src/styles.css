@@ -1,0 +1,19 @@
+/* src/styles.css */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #080c14; --bg2: #0d1526; --bg3: #111e35; --border: #1e3355;
+  --accent: #3b9eff; --accent2: #00d4aa; --text: #cde4ff; --text-dim: #4a6a8a;
+  --node-fill: #0a1f3d; 
+  --ok: #00d4aa;     
+  --warn: #ffc94a;   
+  --danger: #ff6b6b; 
+  --bottleneck: #c044ff; 
+}
+
+body {
+  background: var(--bg); 
+  color: var(--text); 
+  font-family: 'Sora', sans-serif;
+  min-height: 100vh;
+}
